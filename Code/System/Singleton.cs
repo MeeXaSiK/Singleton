@@ -1,8 +1,8 @@
-﻿// -------------------------------------------------------------------------------------------
+﻿// ----------------------------------------------------------------------------
 // The MIT License
 // Singleton for Unity https://github.com/MeeXaSiK/NightSingleton
 // Copyright (c) 2021 Night Train Code
-// -------------------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
 
 using UnityEngine;
 
@@ -16,8 +16,6 @@ namespace NTC.Global.System
             {
                 if (cachedInstance == null)
                 {
-                    if (isQuitting) return null;
-
                     var instances = FindObjectsOfType<TSingleton>();
                     var instance = instances.Length > 0 
                         ? instances[0] 
@@ -36,14 +34,5 @@ namespace NTC.Global.System
         }
         
         private static TSingleton cachedInstance;
-        private static bool isQuitting;
-
-        private void OnApplicationQuit()
-        {
-            isQuitting = true;
-            OnApplicationExit();
-        }
-        
-        protected virtual void OnApplicationExit() { }
     }
 }
