@@ -25,6 +25,9 @@ namespace NTC.Global.System
 
         public static TSingleton GetCanBeNull()
         {
+            if (cachedInstance != null)
+                return cachedInstance;
+            
             var instances = FindObjectsOfType<TSingleton>();
             var instance = instances.Length > 0 ? instances[0] : null;
 
@@ -33,10 +36,10 @@ namespace NTC.Global.System
                 Destroy(instances[i]);
             }
 
-            return instance;
+            return cachedInstance = instance;
         }
 
-        private static TSingleton GetNotNull()
+        public static TSingleton GetNotNull()
         {
             var instances = FindObjectsOfType<TSingleton>();
             var instance = instances.Length > 0 
