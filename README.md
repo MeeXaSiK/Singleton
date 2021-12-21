@@ -22,3 +22,22 @@ public class Demo : MonoBehaviour
 }
 
 ```
+or
+
+```csharp
+
+public class Player : Singleton<Player>
+{
+    public UnitViewModel model;
+}
+
+public class Demo : MonoBehaviour
+{
+    private void Start()
+    {
+        var playerModelCanBeNull = Player.GetCanBeNull().model;
+        var playerModelNotNull = Player.GetNotNull().model;
+    }
+}
+
+```
