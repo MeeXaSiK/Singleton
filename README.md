@@ -41,3 +41,22 @@ public class Demo : MonoBehaviour
 }
 
 ```
+
+or
+
+```csharp
+
+public class Player : MonoBehaviour
+{
+    public UnitViewModel model;
+}
+
+public class Demo : MonoBehaviour
+{
+    private void Start()
+    {
+        var player = Singleton<Player>.Instance;
+    }
+}
+
+```
