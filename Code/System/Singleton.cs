@@ -38,7 +38,7 @@ namespace NTC.Global.System
             
             if (allInstances.Length > 1)
             {
-                Debug.LogError($"{nameof(allInstances)} length is greater than one!");
+                Debug.LogError($"The number of {typeof(TSingleton).Name} on the scene is greater than one!");
             }
             
             for (var i = 1; i < allInstances.Length; i++)
