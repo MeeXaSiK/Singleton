@@ -1,4 +1,4 @@
-# NightSingleton
+# Singleton
 Perfect Singleton for Unity by [Night Train Code](https://www.youtube.com/c/NightTrainCode/)
 
 # How to use
