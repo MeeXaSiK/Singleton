@@ -4,39 +4,22 @@ Perfect Singleton for Unity by [Night Train Code](https://www.youtube.com/c/Nigh
 # How to use
 
 1. Install `Singleton` into your Unity project
-2. Inherit any class from `Singleton<TClass>`
+2. Optionally, you can inherit a class from `Singleton<TClass>`
 
 ```csharp
 
 public class Player : Singleton<Player>
 {
-    public UnitViewModel model;
+    [SerializeField] private UnitViewModel model;
+    
+    public UnitViewModel ViewModel => model;
 }
 
 public class Demo : MonoBehaviour
 {
     private void Start()
     {
-        var playerModel = Player.Instance.model;
-    }
-}
-
-```
-or
-
-```csharp
-
-public class Player : Singleton<Player>
-{
-    public UnitViewModel model;
-}
-
-public class Demo : MonoBehaviour
-{
-    private void Start()
-    {
-        var playerModelCanBeNull = Player.GetCanBeNull().model;
-        var playerModelNotNull = Player.GetNotNull().model;
+        var playerModel = Player.Instance.ViewModel;
     }
 }
 
@@ -48,14 +31,16 @@ or
 
 public class Player : MonoBehaviour
 {
-    public UnitViewModel model;
+    [SerializeField] private UnitViewModel model;
+    
+    public UnitViewModel ViewModel => model;
 }
 
 public class Demo : MonoBehaviour
 {
     private void Start()
     {
-        var player = Singleton<Player>.Instance;
+        var playerModel = Singleton<Player>.Instance.ViewModel;
     }
 }
 
