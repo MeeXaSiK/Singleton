@@ -1,6 +1,6 @@
 ﻿// ----------------------------------------------------------------
 // The MIT License
-// Singleton for Unity https://github.com/MeeXaSiK/NightSingleton
+// Singleton for Unity https://github.com/MeeXaSiK/Singleton
 // Copyright (c) 2021-2023 Night Train Code
 // ----------------------------------------------------------------
 
